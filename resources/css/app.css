@@ -2,11 +2,11 @@
 
 @layer base {
   :root {
-    --color-primary: #0F766E;
-    --color-primary-dark: #115E59;
-    --color-primary-deep: #134E4A;
-    --color-primary-soft: #CCFBF1;
-    --color-primary-tint: #F0FDFA;
+    --color-primary: #012D68;
+    --color-primary-dark: #001F4D;
+    --color-primary-deep: #00173B;
+    --color-primary-soft: #DBEAFE;
+    --color-primary-tint: #EFF6FF;
     --color-surface: #FFFFFF;
     --color-bg-app: #F8FAFC;
     --color-canvas-mobile: #E2E8F0;
@@ -28,13 +28,13 @@
     --color-emerald: #10B981;
     --color-emerald-soft: #ECFDF5;
 
-    --solid-mobile-header: #0F766E;
-    --solid-banner: #0F766E;
+    --solid-mobile-header: #012D68;
+    --solid-banner: #012D68;
 
     --shadow-card: 0 4px 16px -2px rgba(15, 23, 42, 0.08);
     --shadow-soft: 0 1px 3px 0 rgba(15, 23, 42, 0.06);
     --shadow-elevated: 0 10px 25px -3px rgba(15, 23, 42, 0.1);
-    --focus-ring: 0 0 0 3px rgba(15, 118, 110, 0.25);
+    --focus-ring: 0 0 0 3px rgba(1, 45, 104, 0.25);
 
     --sidebar-w: 240px;
     --panel-w: 360px;
@@ -46,14 +46,14 @@
   /* Dark mode is purely opt-in via data-theme="dark", defaulting always to clean light theme */
   :root[data-theme="dark"],
   html[data-theme="dark"] {
-    --color-bg-app: #0F1E21;
-    --color-surface: #17292D;
+    --color-bg-app: #0A1424;
+    --color-surface: #101E35;
     --color-text: #E8F1F1;
     --color-text-secondary: #9DB2B5;
     --color-text-muted: #7F9498;
-    --color-border: #264045;
-    --color-primary-tint: #1F3A3E;
-    --color-primary-soft: #2A4B50;
+    --color-border: #1E2D48;
+    --color-primary-tint: #162644;
+    --color-primary-soft: #1E3A6B;
   }
 
   * {
@@ -92,13 +92,8 @@
 
 /* Custom UI Components & Helpers (Pure Solid & Dynamic Colors) */
 .banner {
-  background-color: #0F766E !important;
-  box-shadow: 0 10px 25px -5px rgba(15, 118, 110, 0.2);
-}
-
-.ai-assistant-card {
-  background-color: #134E4A !important;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #012D68 !important;
+  box-shadow: 0 10px 25px -5px rgba(1, 45, 104, 0.25);
 }
 
 .app-svg-icon {
@@ -118,7 +113,7 @@
   place-items: center;
   color: #ffffff;
   font-weight: 700;
-  background-color: #0D9488;
+  background-color: #012D68;
   user-select: none;
 }
 
@@ -209,17 +204,17 @@
 }
 
 .specialty-chip:hover {
-  border-color: #0D9488;
-  color: #0F766E;
-  background: #F0FDFA;
+  border-color: #012D68;
+  color: #012D68;
+  background: #EFF6FF;
   transform: translateY(-1px);
 }
 
 .specialty-chip.active {
-  background: #0F766E !important;
+  background: #012D68 !important;
   color: #ffffff !important;
-  border-color: #0F766E !important;
-  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
+  border-color: #012D68 !important;
+  box-shadow: 0 4px 12px rgba(1, 45, 104, 0.25);
 }
 
 /* Category Specific Accent Themes for dynamic feel */
@@ -246,14 +241,14 @@
 }
 
 .specialty-chip[data-cat="Orthopedist"]:hover {
-  border-color: #0284C7;
-  color: #0369A1;
-  background: #F0F9FF;
+  border-color: #012D68;
+  color: #012D68;
+  background: #EFF6FF;
 }
 .specialty-chip[data-cat="Orthopedist"].active {
-  background: #0284C7 !important;
-  border-color: #0284C7 !important;
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+  background: #012D68 !important;
+  border-color: #012D68 !important;
+  box-shadow: 0 4px 12px rgba(1, 45, 104, 0.25);
 }
 
 /* Doctor Grid Card */
@@ -273,12 +268,12 @@
 
 .doctor-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 14px 28px -5px rgba(15, 118, 110, 0.16);
+  box-shadow: 0 14px 28px -5px rgba(1, 45, 104, 0.16);
 }
 
 .doctor-card.selected {
-  border-color: #0f766e !important; /* border-teal-700 */
-  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.14), 0 14px 28px -5px rgba(15, 118, 110, 0.18) !important;
+  border-color: #012D68 !important;
+  box-shadow: 0 0 0 3px rgba(1, 45, 104, 0.16), 0 14px 28px -5px rgba(1, 45, 104, 0.2) !important;
 }
 
 /* Date Pill */
@@ -308,19 +303,19 @@
 }
 
 .day-pill:hover {
-  border-color: #0F766E;
-  background: #F0FDFA;
+  border-color: #012D68;
+  background: #EFF6FF;
 }
 
 .day-pill.active {
-  background: #0F766E !important;
-  border-color: #0F766E !important;
+  background: #012D68 !important;
+  border-color: #012D68 !important;
   color: #ffffff !important;
-  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
+  box-shadow: 0 4px 12px rgba(1, 45, 104, 0.25);
 }
 
 .day-pill.active small {
-  color: #CCFBF1;
+  color: #DBEAFE;
 }
 
 /* Time Slot Pill */
@@ -340,17 +335,17 @@
 }
 
 .slot-pill:hover {
-  border-color: #0F766E;
-  color: #0F766E;
-  background: #F0FDFA;
+  border-color: #012D68;
+  color: #012D68;
+  background: #EFF6FF;
 }
 
 .slot-pill.active {
-  border-color: #0F766E !important;
+  border-color: #012D68 !important;
   color: #ffffff !important;
-  background: #0F766E !important;
+  background: #012D68 !important;
   font-weight: 700;
-  box-shadow: 0 3px 8px rgba(15, 118, 110, 0.25);
+  box-shadow: 0 3px 8px rgba(1, 45, 104, 0.25);
 }
 
 /* Floating Bottom Navigation */
@@ -381,14 +376,14 @@
 }
 
 .floating-bottom-nav button:hover {
-  color: #0F766E;
-  background: #F0FDFA;
+  color: #012D68;
+  background: #EFF6FF;
 }
 
 .floating-bottom-nav button.active {
-  background: #0F766E !important;
+  background: #012D68 !important;
   color: #ffffff !important;
-  box-shadow: 0 4px 10px rgba(15, 118, 110, 0.3);
+  box-shadow: 0 4px 10px rgba(1, 45, 104, 0.3);
 }
 
 /* Mobile Bottom Sheet & Backdrop */

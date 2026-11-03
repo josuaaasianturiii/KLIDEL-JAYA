@@ -55,20 +55,20 @@ const SPECIALTY_THEMES = {
     dropShadow: 'drop-shadow-[0_14px_20px_rgba(79,70,229,0.18)]',
   },
   Orthopedist: {
-    bg: 'bg-teal-50/90',
-    slotText: 'text-teal-800',
-    slotBg: 'bg-teal-50',
-    slotDot: 'bg-teal-600',
-    dropShadow: 'drop-shadow-[0_14px_20px_rgba(15,118,110,0.22)]',
+    bg: 'bg-blue-50/90',
+    slotText: 'text-[#012D68]',
+    slotBg: 'bg-blue-50',
+    slotDot: 'bg-[#012D68]',
+    dropShadow: 'drop-shadow-[0_14px_20px_rgba(1,45,104,0.20)]',
   },
 };
 
 const DEFAULT_THEME = {
-  bg: 'bg-teal-50/90',
-  slotText: 'text-teal-800',
-  slotBg: 'bg-teal-50',
-  slotDot: 'bg-teal-600',
-  dropShadow: 'drop-shadow-[0_14px_20px_rgba(15,118,110,0.22)]',
+  bg: 'bg-blue-50/90',
+  slotText: 'text-[#012D68]',
+  slotBg: 'bg-blue-50',
+  slotDot: 'bg-[#012D68]',
+  dropShadow: 'drop-shadow-[0_14px_20px_rgba(1,45,104,0.20)]',
 };
 
 /**
@@ -80,7 +80,7 @@ const DEFAULT_THEME = {
  * 2. Ikon 3D Mikroskop melayang di sudut kanan atas (-top-7 -right-2, z-30), sebagian berada
  *    di luar batas tepi kartu untuk menciptakan efek keluar layar.
  * 3. Ikon 3D Stetoskop & Hati pastel melayang di lapisan background memberi ilusi dimensi bertingkat.
- * 4. Kartu ke-3 (Dr. Saran Mitchell) default terpilih (active border-2 border-teal-700).
+ * 4. Kartu ke-3 (Dr. Saran Mitchell) default terpilih (active border-2 border-[#012D68]).
  */
 export default function DoctorRecommendations({
   doctors = DEFAULT_DOCTORS,
@@ -117,7 +117,7 @@ export default function DoctorRecommendations({
               aria-pressed={isSelected}
               className={`group relative flex flex-col w-full text-left bg-white rounded-3xl transition-all duration-300 ease-out cursor-pointer focus:outline-none overflow-visible ${
                 isSelected
-                  ? 'border-2 border-teal-700 shadow-lg ring-4 ring-teal-700/15 -translate-y-1.5'
+                  ? 'border-2 border-[#012D68] shadow-lg ring-4 ring-[#012D68]/15 -translate-y-1.5'
                   : 'border-2 border-transparent shadow-sm hover:shadow-xl hover:border-slate-200 hover:-translate-y-2'
               }`}
             >
@@ -191,7 +191,7 @@ export default function DoctorRecommendations({
 
                 {/* Harga per sesi */}
                 <div className="mt-4 flex items-baseline gap-1">
-                  <span className="text-base font-bold text-teal-700">
+                  <span className="text-base font-bold text-[#012D68]">
                     {doc.price}
                   </span>
                   <span className="text-xs font-normal text-slate-400">

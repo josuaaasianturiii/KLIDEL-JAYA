@@ -72,15 +72,6 @@
                     </a>
                 @endauth
             </nav>
-
-            <!-- AI Assistant Promo Card (Solid Deep Teal) -->
-            <div class="ai-assistant-card hidden xl:block mt-auto rounded-[18px] text-white p-4 text-[12px] leading-relaxed shadow-sm">
-                <div class="flex items-center gap-1.5 font-bold text-[14px] mb-1 text-amber-300">
-                    <svg class="app-svg-icon w-4 h-4 text-amber-300"><use href="#icon-sparkle"/></svg>
-                    <span>AI Health Assistant</span>
-                </div>
-                <p class="text-white/85 text-[11.5px]">Tanyakan gejala dan dapatkan saran dokter serta langkah medis yang tepat secara instan.</p>
-            </div>
         </aside>
 
         <!-- MAIN CONTENT AREA -->
@@ -124,10 +115,10 @@
                 @endauth
             </header>
 
-            <!-- Greeting Banner with Integrated Next Appointment Card (Solid Energetic Teal) -->
+            <!-- Greeting Banner with Integrated Next Appointment Card (Solid Gabe Medica Navy) -->
             <section class="banner rounded-[24px] p-7 flex justify-between items-center gap-6 flex-wrap text-white shadow-sm">
                 <div class="max-w-[340px]">
-                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-800 text-teal-100 border border-teal-600/60 text-xs font-semibold mb-2.5 shadow-xs">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#001F4D] text-blue-100 border border-blue-700/60 text-xs font-semibold mb-2.5 shadow-xs">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                         Layanan Prioritas Gabe Medica
                     </div>
@@ -144,18 +135,18 @@
                         </span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <div class="w-[52px] h-[52px] rounded-[14px] bg-teal-50 overflow-hidden flex items-end justify-center flex-shrink-0 border border-teal-100">
+                        <div class="w-[52px] h-[52px] rounded-[14px] bg-blue-50 overflow-hidden flex items-end justify-center flex-shrink-0 border border-blue-100">
                             <img src="{{ asset($nextAppointment['image']) }}" alt="{{ $nextAppointment['doctor_name'] }}" class="h-full w-auto object-contain object-bottom">
                         </div>
                         <div class="min-w-0">
                             <b class="block text-[14.5px] text-slate-900 truncate font-bold">{{ $nextAppointment['doctor_name'] }}</b>
                             <small class="block text-slate-500 text-[11.5px] mt-0.5 truncate">{{ $nextAppointment['specialty'] }}</small>
-                            <small class="block text-teal-700 font-semibold text-[11px] mt-0.5">{{ $nextAppointment['date_time'] }}</small>
+                            <small class="block text-[#012D68] font-semibold text-[11px] mt-0.5">{{ $nextAppointment['date_time'] }}</small>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-2.5 mt-3.5">
                         <button class="btn-reschedule h-9 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-semibold text-[12px] hover:bg-slate-100 transition-colors">Reschedule</button>
-                        <button class="btn-join-call h-9 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-[12px] flex items-center justify-center gap-1.5 transition-all shadow-xs">
+                        <button class="btn-join-call h-9 rounded-xl bg-[#012D68] hover:bg-[#023E8A] text-white font-bold text-[12px] flex items-center justify-center gap-1.5 transition-all shadow-xs">
                             <svg class="app-svg-icon w-3.5 h-3.5"><use href="#icon-vid"/></svg>
                             Join Call
                         </button>
@@ -192,17 +183,17 @@
                         $cardBg = match($doc['category']) {
                             'Cardiologist' => 'bg-rose-50/90 border-b border-rose-100',
                             'Neurologist' => 'bg-indigo-50/90 border-b border-indigo-100',
-                            default => 'bg-teal-50/90 border-b border-teal-100'
+                            default => 'bg-blue-50/90 border-b border-blue-100'
                         };
                         $slotClass = match($doc['category']) {
                             'Cardiologist' => 'bg-rose-100/90 text-rose-800',
                             'Neurologist' => 'bg-indigo-100/90 text-indigo-800',
-                            default => 'bg-teal-100/90 text-teal-800'
+                            default => 'bg-blue-100/90 text-[#012D68]'
                         };
                         $pulseClass = match($doc['category']) {
                             'Cardiologist' => 'bg-rose-600',
                             'Neurologist' => 'bg-indigo-600',
-                            default => 'bg-teal-600'
+                            default => 'bg-[#012D68]'
                         };
                         $slotText = match($index) {
                             0 => '4 Slots Available',
@@ -247,7 +238,7 @@
                             <div class="relative w-full h-full flex items-end justify-center overflow-visible">
                                 <img src="{{ asset($doc['image']) }}" 
                                      alt="{{ $doc['name'] }}" 
-                                     class="relative z-20 h-[126%] w-auto max-w-none object-contain object-bottom -top-6 sm:-top-7 pointer-events-none transition-transform duration-300 ease-out group-hover:scale-108 group-hover:-translate-y-2 drop-shadow-[0_14px_18px_rgba(15,118,110,0.20)]">
+                                     class="relative z-20 h-[126%] w-auto max-w-none object-contain object-bottom -top-6 sm:-top-7 pointer-events-none transition-transform duration-300 ease-out group-hover:scale-108 group-hover:-translate-y-2 drop-shadow-[0_14px_18px_rgba(1,45,104,0.20)]">
                             </div>
                         </div>
 
@@ -262,7 +253,7 @@
                                 </span>
                             </div>
                             <div class="mt-3.5 flex items-baseline gap-1">
-                                <span class="text-base font-extrabold text-teal-700">{{ $doc['price'] }}</span>
+                                <span class="text-base font-extrabold text-[#012D68]">{{ $doc['price'] }}</span>
                                 <span class="text-xs font-normal text-slate-400">/per session</span>
                             </div>
                         </div>
@@ -279,7 +270,7 @@
         <aside class="panel bg-[var(--color-surface)] border-l border-[var(--color-border)] p-6 sticky top-0 h-screen overflow-y-auto flex flex-col z-20">
             <!-- Doctor Header -->
             <div class="flex items-center gap-3.5">
-                <div class="w-[84px] h-[84px] rounded-[18px] bg-teal-50 overflow-hidden flex items-end justify-center flex-shrink-0 shadow-sm border border-teal-100">
+                <div class="w-[84px] h-[84px] rounded-[18px] bg-blue-50 overflow-hidden flex items-end justify-center flex-shrink-0 shadow-sm border border-blue-100">
                     <img id="pav-img" src="{{ asset($doctors[2]['image']) }}" alt="{{ $doctors[2]['name'] }}" class="h-full w-auto object-contain object-bottom">
                 </div>
                 <div class="min-w-0">
@@ -360,7 +351,7 @@
 
             <!-- Sticky CTA Button (Solid White Container with Border) -->
             <div class="mt-auto pt-5 sticky bottom-0 bg-white border-t border-slate-100 pb-1">
-                <button class="btn-book-session w-full h-12 rounded-[16px] bg-teal-700 hover:bg-teal-800 active:bg-teal-900 text-white font-bold text-[14.5px] transition-all shadow-md">
+                <button class="btn-book-session w-full h-12 rounded-[16px] bg-[#012D68] hover:bg-[#023E8A] active:bg-[#001F4D] text-white font-bold text-[14.5px] transition-all shadow-md">
                     Book a Session
                 </button>
             </div>
@@ -373,8 +364,8 @@
     <!-- ========================================== -->
     <div class="mobile-layout block lg:hidden min-h-screen relative pb-28">
 
-        <!-- Solid Dynamic Teal Header (No Gradient) -->
-        <header class="bg-[#0F766E] pt-12 px-5 pb-8 text-white">
+        <!-- Solid Dynamic Gabe Medica Navy Header (No Gradient) -->
+        <header class="bg-[#012D68] pt-12 px-5 pb-8 text-white">
             <div class="flex justify-between items-center">
                 <!-- User Avatar -->
                 <div class="avatar-initials w-10 h-10 border-2 border-white text-[14px]">
@@ -412,20 +403,20 @@
             </div>
 
             <!-- Next Appointment Label -->
-            <div class="text-center text-teal-100 text-[11px] font-bold tracking-wider mt-4 mb-2 uppercase">
+            <div class="text-center text-blue-100 text-[11px] font-bold tracking-wider mt-4 mb-2 uppercase">
                 Next Appointment
             </div>
 
             <!-- Stacked Appointment Card (Solid Pure White Surface) -->
             <div class="stacked-card mx-1 bg-white text-slate-900 rounded-[22px] p-4 shadow-md border border-slate-100">
                 <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-[14px] bg-teal-50 overflow-hidden flex items-end justify-center flex-shrink-0 border border-teal-100">
+                    <div class="w-12 h-12 rounded-[14px] bg-blue-50 overflow-hidden flex items-end justify-center flex-shrink-0 border border-blue-100">
                         <img src="{{ asset($nextAppointment['image']) }}" alt="{{ $nextAppointment['doctor_name'] }}" class="h-full w-auto object-contain object-bottom">
                     </div>
                     <div class="min-w-0 flex-1">
                         <b class="text-[14px] text-slate-900 truncate block font-bold">{{ $nextAppointment['doctor_name'] }}</b>
                         <small class="text-slate-500 text-[11px] block mt-0.5">{{ $nextAppointment['specialty'] }}</small>
-                        <small class="text-teal-700 text-[11px] font-semibold block mt-0.5">{{ $nextAppointment['date_time'] }}</small>
+                        <small class="text-[#012D68] text-[11px] font-semibold block mt-0.5">{{ $nextAppointment['date_time'] }}</small>
                     </div>
                     <span class="w-8 h-8 rounded-full border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-700 flex-shrink-0">
                         <svg class="app-svg-icon w-3.5 h-3.5"><use href="#icon-up"/></svg>
@@ -433,7 +424,7 @@
                 </div>
                 <div class="grid grid-cols-2 gap-2 mt-3.5">
                     <button class="btn-reschedule h-8 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-semibold text-[11.5px] hover:bg-slate-100 transition-colors">Reschedule</button>
-                    <button class="btn-join-call h-8 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-[11.5px] flex items-center justify-center gap-1 shadow-xs">
+                    <button class="btn-join-call h-8 rounded-xl bg-[#012D68] hover:bg-[#023E8A] text-white font-bold text-[11.5px] flex items-center justify-center gap-1 shadow-xs">
                         <svg class="app-svg-icon w-3 h-3"><use href="#icon-vid"/></svg>
                         Join Call
                     </button>
@@ -462,7 +453,7 @@
             <!-- Section Header -->
             <div class="flex justify-between items-center mt-4 mb-3 px-1">
                 <b class="text-[15px] text-slate-900 font-bold">Find a Doctor</b>
-                <a href="javascript:void(0)" onclick="window.showToast('Menampilkan seluruh dokter')" class="text-[12px] text-teal-700 font-bold">View All</a>
+                <a href="javascript:void(0)" onclick="window.showToast('Menampilkan seluruh dokter')" class="text-[12px] text-[#012D68] font-bold">View All</a>
             </div>
 
             <!-- Horizontal Doctor Cards (Scrollable with Dynamic Specialty Pastels) -->
@@ -472,7 +463,7 @@
                         $mCardBg = match($doc['category']) {
                             'Cardiologist' => 'bg-rose-50/90 border-b border-rose-100',
                             'Neurologist' => 'bg-indigo-50/90 border-b border-indigo-100',
-                            default => 'bg-teal-50/90 border-b border-teal-100'
+                            default => 'bg-blue-50/90 border-b border-blue-100'
                         };
                     @endphp
                     <div class="doctor-card flex-none w-[155px] cursor-pointer group {{ $index === 2 ? 'selected' : '' }}"
@@ -502,7 +493,7 @@
                                 <span class="text-[10px] font-bold text-slate-900 leading-none">{{ $doc['rating'] }}</span>
                             </div>
                             <div class="relative w-full h-full flex items-end justify-center overflow-visible">
-                                <img src="{{ asset($doc['image']) }}" alt="{{ $doc['name'] }}" class="relative z-20 h-[122%] w-auto max-w-none object-contain object-bottom -top-4 pointer-events-none drop-shadow-[0_8px_12px_rgba(15,118,110,0.18)]">
+                                <img src="{{ asset($doc['image']) }}" alt="{{ $doc['name'] }}" class="relative z-20 h-[122%] w-auto max-w-none object-contain object-bottom -top-4 pointer-events-none drop-shadow-[0_8px_12px_rgba(1,45,104,0.18)]">
                             </div>
                         </div>
 
@@ -511,7 +502,7 @@
                             <b class="text-sm font-bold text-slate-900 block truncate">{{ $doc['name'] }}</b>
                             <small class="text-slate-500 font-normal text-xs block truncate mt-0.5">{{ $doc['specialty'] }}</small>
                             <div class="mt-2 flex items-baseline gap-1">
-                                <span class="text-xs font-extrabold text-teal-700">{{ $doc['price'] }}</span>
+                                <span class="text-xs font-extrabold text-[#012D68]">{{ $doc['price'] }}</span>
                                 <span class="text-[10px] font-normal text-slate-400">/per session</span>
                             </div>
                         </div>
@@ -546,7 +537,7 @@
 
             <!-- Doctor Profile -->
             <div class="flex items-center gap-3">
-                <div class="w-16 h-16 rounded-[14px] bg-teal-50 overflow-hidden flex items-end justify-center flex-shrink-0 shadow-sm border border-teal-100">
+                <div class="w-16 h-16 rounded-[14px] bg-blue-50 overflow-hidden flex items-end justify-center flex-shrink-0 shadow-sm border border-blue-100">
                     <img id="m-pav-img" src="{{ asset($doctors[2]['image']) }}" alt="{{ $doctors[2]['name'] }}" class="h-full w-auto object-contain object-bottom">
                 </div>
                 <div class="min-w-0">

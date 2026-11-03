@@ -16,7 +16,7 @@ class HomeViewTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('home');
         $response->assertViewHasAll(['user', 'nextAppointment', 'categories', 'doctors']);
-        $response->assertSee('AI Health');
+        $response->assertSee('Gabe Medica');
         $response->assertSee('What’s on your health today?');
         $response->assertSee('Dr. Saran Mitchell');
         $response->assertSee('Dr. Anaya Kapoor');
