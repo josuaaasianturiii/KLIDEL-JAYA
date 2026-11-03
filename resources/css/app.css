@@ -1,0 +1,418 @@
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    --color-primary: #2A8A8C;
+    --color-primary-dark: #2D6471;
+    --color-primary-deep: #1F6F73;
+    --color-primary-soft: #CFE3E2;
+    --color-primary-tint: #E4F0EF;
+    --color-surface: #FFFFFF;
+    --color-bg-app: #EEF4F4;
+    --color-canvas-mobile: #C9DAE3;
+    --color-text: #0E2A2D;
+    --color-text-secondary: #5B6B6E;
+    --color-text-muted: #8A9699;
+    --color-border: #DDE6E8;
+    --color-rating: #F5A623;
+
+    --gradient-mobile: linear-gradient(180deg, #2F8386 0%, #6FA9AA 45%, #CFE3E2 100%);
+    --gradient-desktop: linear-gradient(135deg, #1F6F73 0%, #2F8386 45%, #6FA9AA 100%);
+
+    --shadow-card: 0 8px 24px rgba(20, 70, 75, 0.12);
+    --shadow-soft: 0 2px 8px rgba(20, 70, 75, 0.08);
+    --shadow-elevated: 0 14px 34px rgba(20, 70, 75, 0.16);
+    --focus-ring: 0 0 0 3px rgba(42, 138, 140, 0.35);
+
+    --sidebar-w: 240px;
+    --panel-w: 360px;
+    --topbar-h: 72px;
+
+    --font-app: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  /* Dark mode is purely opt-in via data-theme="dark", defaulting always to clean light theme */
+  :root[data-theme="dark"],
+  html[data-theme="dark"] {
+    --color-bg-app: #0F1E21;
+    --color-surface: #17292D;
+    --color-text: #E8F1F1;
+    --color-text-secondary: #9DB2B5;
+    --color-text-muted: #7F9498;
+    --color-border: #264045;
+    --color-primary-tint: #1F3A3E;
+    --color-primary-soft: #2A4B50;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--color-bg-app);
+    color: var(--color-text);
+    font-family: var(--font-app);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100dvh;
+  }
+
+  button, input, select, textarea {
+    font: inherit;
+    color: inherit;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  button:focus-visible, input:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+}
+
+/* Custom UI Components & Helpers */
+.banner {
+  background: linear-gradient(135deg, #1F6F73 0%, #2F8386 45%, #6FA9AA 100%) !important;
+}
+
+.ai-assistant-card {
+  background: linear-gradient(135deg, #1F6F73 0%, #2F8386 45%, #6FA9AA 100%) !important;
+}
+
+.app-svg-icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.avatar-initials {
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-weight: 600;
+  background: linear-gradient(135deg, #5aa6a8, #1F6F73);
+  user-select: none;
+}
+
+.glass-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.04);
+}
+
+.glass-btn:active {
+  transform: scale(0.96);
+}
+
+/* Stacked card effect for Next Appointment */
+.stacked-card {
+  position: relative;
+  box-shadow: var(--shadow-card);
+}
+
+.stacked-card::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  top: -7px;
+  height: 14px;
+  border-radius: 16px 16px 0 0;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stacked-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Rating Badge */
+.rating-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: #ffffff;
+  color: #0E2A2D;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.rating-pill::before {
+  content: "★";
+  color: var(--color-rating);
+  font-size: 12px;
+}
+
+/* Specialty Chips */
+.specialty-chip {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.specialty-chip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-tint);
+}
+
+.specialty-chip.active {
+  background: var(--color-primary-dark);
+  color: #ffffff;
+  border-color: var(--color-primary-dark);
+  box-shadow: 0 4px 12px rgba(45, 100, 113, 0.25);
+}
+
+/* Doctor Grid Card */
+.doctor-card {
+  background: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 1.5rem; /* rounded-3xl */
+  padding: 0;
+  text-align: left;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.doctor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px -5px rgba(15, 118, 110, 0.16);
+}
+
+.doctor-card.selected {
+  border-color: #0f766e !important; /* border-teal-700 */
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.14), 0 14px 28px -5px rgba(15, 118, 110, 0.18) !important;
+}
+
+/* Date Pill */
+.day-pill {
+  border-radius: 12px;
+  padding: 8px 0;
+  text-align: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day-pill small {
+  display: block;
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+.day-pill b {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.day-pill:hover {
+  border-color: var(--color-primary);
+}
+
+.day-pill.active {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(45, 100, 113, 0.25);
+}
+
+.day-pill.active small {
+  color: #cfe3e2;
+}
+
+/* Time Slot Pill */
+.slot-pill {
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 12px;
+  transition: all 0.2s ease;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.slot-pill:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.slot-pill.active {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-tint);
+  font-weight: 600;
+}
+
+/* Floating Bottom Navigation */
+.floating-bottom-nav {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  display: flex;
+  gap: 8px;
+  background: var(--color-primary-tint);
+  padding: 6px 12px;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(20, 70, 75, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  z-index: 40;
+}
+
+.floating-bottom-nav button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-primary);
+  display: grid;
+  place-items: center;
+  transition: all 0.2s ease;
+}
+
+.floating-bottom-nav button.active {
+  background: #ffffff;
+  color: var(--color-primary);
+  box-shadow: 0 3px 10px rgba(20, 70, 75, 0.2);
+}
+
+/* Mobile Bottom Sheet & Backdrop */
+.mobile-sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(14, 42, 45, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-sheet-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-sheet {
+  position: fixed;
+  inset-x: 0;
+  bottom: 0;
+  background: var(--color-surface);
+  border-radius: 28px 28px 0 0;
+  padding: 20px 16px 28px;
+  z-index: 51;
+  max-height: 88dvh;
+  overflow-y: auto;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.18);
+  transform: translateY(100%);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-sheet.open {
+  transform: translateY(0);
+}
+
+/* Interactive Toast */
+.app-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: #0E2A2D;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-elevated);
+  font-size: 13.5px;
+  font-weight: 500;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-16px) scale(0.96);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-toast.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+@media (max-width: 767px) {
+  .app-toast {
+    right: 50%;
+    transform: translate(50%, -16px) scale(0.96);
+    width: max-content;
+    max-width: calc(100vw - 32px);
+    text-align: center;
+  }
+  .app-toast.show {
+    transform: translate(50%, 0) scale(1);
+  }
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
