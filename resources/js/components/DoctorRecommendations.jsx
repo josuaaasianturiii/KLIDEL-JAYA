@@ -37,6 +37,41 @@ const DEFAULT_DOCTORS = [
 ];
 
 /**
+ * Tema warna dinamis solid pastel per spesialisasi (tanpa gradasi)
+ */
+const SPECIALTY_THEMES = {
+  Cardiologist: {
+    bg: 'bg-rose-50/90',
+    slotText: 'text-rose-800',
+    slotBg: 'bg-rose-50',
+    slotDot: 'bg-rose-600',
+    dropShadow: 'drop-shadow-[0_14px_20px_rgba(225,29,72,0.18)]',
+  },
+  Neurologist: {
+    bg: 'bg-indigo-50/90',
+    slotText: 'text-indigo-800',
+    slotBg: 'bg-indigo-50',
+    slotDot: 'bg-indigo-600',
+    dropShadow: 'drop-shadow-[0_14px_20px_rgba(79,70,229,0.18)]',
+  },
+  Orthopedist: {
+    bg: 'bg-teal-50/90',
+    slotText: 'text-teal-800',
+    slotBg: 'bg-teal-50',
+    slotDot: 'bg-teal-600',
+    dropShadow: 'drop-shadow-[0_14px_20px_rgba(15,118,110,0.22)]',
+  },
+};
+
+const DEFAULT_THEME = {
+  bg: 'bg-teal-50/90',
+  slotText: 'text-teal-800',
+  slotBg: 'bg-teal-50',
+  slotDot: 'bg-teal-600',
+  dropShadow: 'drop-shadow-[0_14px_20px_rgba(15,118,110,0.22)]',
+};
+
+/**
  * Komponen Kartu Rekomendasi Dokter dengan Out of Bounds (Pop-out Effect)
  *
  * Efek Kedalaman Spasial (Pop-out 3D):
@@ -72,6 +107,7 @@ export default function DoctorRecommendations({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {doctors.map((doc) => {
           const isSelected = activeId === doc.id;
+          const theme = SPECIALTY_THEMES[doc.specialty] || DEFAULT_THEME;
 
           return (
             <button
@@ -105,8 +141,8 @@ export default function DoctorRecommendations({
                 />
               </div>
 
-              {/* Blok Atas Hijau Pastel (rounded-t-[22px], overflow-visible untuk pop-out) */}
-              <div className="relative w-full h-48 sm:h-52 bg-teal-50/90 rounded-t-[22px] flex items-end justify-center overflow-visible">
+              {/* Blok Atas Solid Pastel Berdasarkan Spesialisasi (rounded-t-[22px], overflow-visible untuk pop-out) */}
+              <div className={`relative w-full h-48 sm:h-52 ${theme.bg} rounded-t-[22px] flex items-end justify-center overflow-visible`}>
                 {/* Badge Rating Pil (Pojok Kiri Atas) */}
                 <div className="absolute top-3.5 left-3.5 z-30 inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-full shadow-xs border border-slate-100">
                   <svg
@@ -127,7 +163,7 @@ export default function DoctorRecommendations({
                   <img
                     src={doc.image}
                     alt={doc.alt || doc.name}
-                    className="relative z-20 h-[126%] w-auto max-w-none object-contain object-bottom -top-6 sm:-top-7 pointer-events-none transition-transform duration-300 ease-out group-hover:scale-108 group-hover:-translate-y-2 drop-shadow-[0_14px_20px_rgba(15,118,110,0.22)]"
+                    className={`relative z-20 h-[126%] w-auto max-w-none object-contain object-bottom -top-6 sm:-top-7 pointer-events-none transition-transform duration-300 ease-out group-hover:scale-108 group-hover:-translate-y-2 ${theme.dropShadow}`}
                     loading="lazy"
                   />
                 </div>
@@ -147,8 +183,8 @@ export default function DoctorRecommendations({
                   </p>
 
                   {/* Pill Slot / Jadwal Tersedia */}
-                  <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-teal-800 bg-teal-50 px-2.5 py-0.5 rounded-full mt-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal-600 animate-pulse"></span>
+                  <span className={`inline-flex items-center gap-1.5 text-[11px] font-semibold ${theme.slotText} ${theme.slotBg} px-2.5 py-0.5 rounded-full mt-2.5`}>
+                    <span className={`w-1.5 h-1.5 rounded-full ${theme.slotDot} animate-pulse`}></span>
                     {doc.slots || '5 Slots Available'}
                   </span>
                 </div>

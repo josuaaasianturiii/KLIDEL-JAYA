@@ -2,27 +2,39 @@
 
 @layer base {
   :root {
-    --color-primary: #2A8A8C;
-    --color-primary-dark: #2D6471;
-    --color-primary-deep: #1F6F73;
-    --color-primary-soft: #CFE3E2;
-    --color-primary-tint: #E4F0EF;
+    --color-primary: #0F766E;
+    --color-primary-dark: #115E59;
+    --color-primary-deep: #134E4A;
+    --color-primary-soft: #CCFBF1;
+    --color-primary-tint: #F0FDFA;
     --color-surface: #FFFFFF;
-    --color-bg-app: #EEF4F4;
-    --color-canvas-mobile: #C9DAE3;
-    --color-text: #0E2A2D;
-    --color-text-secondary: #5B6B6E;
-    --color-text-muted: #8A9699;
-    --color-border: #DDE6E8;
-    --color-rating: #F5A623;
+    --color-bg-app: #F8FAFC;
+    --color-canvas-mobile: #E2E8F0;
+    --color-text: #0F172A;
+    --color-text-secondary: #475569;
+    --color-text-muted: #94A3B8;
+    --color-border: #E2E8F0;
+    --color-rating: #F59E0B;
 
-    --gradient-mobile: linear-gradient(180deg, #2F8386 0%, #6FA9AA 45%, #CFE3E2 100%);
-    --gradient-desktop: linear-gradient(135deg, #1F6F73 0%, #2F8386 45%, #6FA9AA 100%);
+    /* Dynamic Vibrant Category Accents */
+    --color-rose: #F43F5E;
+    --color-rose-soft: #FFF1F2;
+    --color-indigo: #6366F1;
+    --color-indigo-soft: #EEF2FF;
+    --color-sky: #0284C7;
+    --color-sky-soft: #F0F9FF;
+    --color-amber: #D97706;
+    --color-amber-soft: #FEF3C7;
+    --color-emerald: #10B981;
+    --color-emerald-soft: #ECFDF5;
 
-    --shadow-card: 0 8px 24px rgba(20, 70, 75, 0.12);
-    --shadow-soft: 0 2px 8px rgba(20, 70, 75, 0.08);
-    --shadow-elevated: 0 14px 34px rgba(20, 70, 75, 0.16);
-    --focus-ring: 0 0 0 3px rgba(42, 138, 140, 0.35);
+    --solid-mobile-header: #0F766E;
+    --solid-banner: #0F766E;
+
+    --shadow-card: 0 4px 16px -2px rgba(15, 23, 42, 0.08);
+    --shadow-soft: 0 1px 3px 0 rgba(15, 23, 42, 0.06);
+    --shadow-elevated: 0 10px 25px -3px rgba(15, 23, 42, 0.1);
+    --focus-ring: 0 0 0 3px rgba(15, 118, 110, 0.25);
 
     --sidebar-w: 240px;
     --panel-w: 360px;
@@ -78,13 +90,15 @@
   }
 }
 
-/* Custom UI Components & Helpers */
+/* Custom UI Components & Helpers (Pure Solid & Dynamic Colors) */
 .banner {
-  background: linear-gradient(135deg, #1F6F73 0%, #2F8386 45%, #6FA9AA 100%) !important;
+  background-color: #0F766E !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 118, 110, 0.2);
 }
 
 .ai-assistant-card {
-  background: linear-gradient(135deg, #1F6F73 0%, #2F8386 45%, #6FA9AA 100%) !important;
+  background-color: #134E4A !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .app-svg-icon {
@@ -103,8 +117,8 @@
   display: grid;
   place-items: center;
   color: #ffffff;
-  font-weight: 600;
-  background: linear-gradient(135deg, #5aa6a8, #1F6F73);
+  font-weight: 700;
+  background-color: #0D9488;
   user-select: none;
 }
 
@@ -175,35 +189,71 @@
   font-size: 12px;
 }
 
-/* Specialty Chips */
+/* Specialty Chips with Dynamic Vibrant Colors */
 .specialty-chip {
-  height: 36px;
-  padding: 0 16px;
+  height: 38px;
+  padding: 0 18px;
   border-radius: 999px;
   border: 1px solid var(--color-border);
-  background: var(--color-surface);
+  background: #ffffff;
   color: var(--color-text-secondary);
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   white-space: nowrap;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .specialty-chip:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  background: var(--color-primary-tint);
+  border-color: #0D9488;
+  color: #0F766E;
+  background: #F0FDFA;
+  transform: translateY(-1px);
 }
 
 .specialty-chip.active {
-  background: var(--color-primary-dark);
-  color: #ffffff;
-  border-color: var(--color-primary-dark);
-  box-shadow: 0 4px 12px rgba(45, 100, 113, 0.25);
+  background: #0F766E !important;
+  color: #ffffff !important;
+  border-color: #0F766E !important;
+  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
+}
+
+/* Category Specific Accent Themes for dynamic feel */
+.specialty-chip[data-cat="Cardiologist"]:hover {
+  border-color: #F43F5E;
+  color: #E11D48;
+  background: #FFF1F2;
+}
+.specialty-chip[data-cat="Cardiologist"].active {
+  background: #E11D48 !important;
+  border-color: #E11D48 !important;
+  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.25);
+}
+
+.specialty-chip[data-cat="Neurologist"]:hover {
+  border-color: #6366F1;
+  color: #4F46E5;
+  background: #EEF2FF;
+}
+.specialty-chip[data-cat="Neurologist"].active {
+  background: #4F46E5 !important;
+  border-color: #4F46E5 !important;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+.specialty-chip[data-cat="Orthopedist"]:hover {
+  border-color: #0284C7;
+  color: #0369A1;
+  background: #F0F9FF;
+}
+.specialty-chip[data-cat="Orthopedist"].active {
+  background: #0284C7 !important;
+  border-color: #0284C7 !important;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
 }
 
 /* Doctor Grid Card */
@@ -236,13 +286,14 @@
   border-radius: 12px;
   padding: 8px 0;
   text-align: center;
-  background: var(--color-surface);
+  background: #ffffff;
   border: 1px solid var(--color-border);
   transition: all 0.2s ease;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .day-pill small {
@@ -253,47 +304,53 @@
 
 .day-pill b {
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .day-pill:hover {
-  border-color: var(--color-primary);
+  border-color: #0F766E;
+  background: #F0FDFA;
 }
 
 .day-pill.active {
-  background: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
-  color: #ffffff;
-  box-shadow: 0 4px 10px rgba(45, 100, 113, 0.25);
+  background: #0F766E !important;
+  border-color: #0F766E !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
 }
 
 .day-pill.active small {
-  color: #cfe3e2;
+  color: #CCFBF1;
 }
 
 /* Time Slot Pill */
 .slot-pill {
-  height: 36px;
-  border-radius: 10px;
+  height: 38px;
+  border-radius: 12px;
   border: 1px solid var(--color-border);
-  color: var(--color-text-muted);
-  font-size: 12px;
+  background: #ffffff;
+  color: var(--color-text-secondary);
+  font-size: 12.5px;
+  font-weight: 600;
   transition: all 0.2s ease;
   display: grid;
   place-items: center;
   cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .slot-pill:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  border-color: #0F766E;
+  color: #0F766E;
+  background: #F0FDFA;
 }
 
 .slot-pill.active {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  background: var(--color-primary-tint);
-  font-weight: 600;
+  border-color: #0F766E !important;
+  color: #ffffff !important;
+  background: #0F766E !important;
+  font-weight: 700;
+  box-shadow: 0 3px 8px rgba(15, 118, 110, 0.25);
 }
 
 /* Floating Bottom Navigation */
@@ -304,12 +361,11 @@
   bottom: 20px;
   display: flex;
   gap: 8px;
-  background: var(--color-primary-tint);
+  background: #ffffff;
   padding: 6px 12px;
   border-radius: 999px;
-  box-shadow: 0 10px 30px rgba(20, 70, 75, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.14);
+  border: 1px solid var(--color-border);
   z-index: 40;
 }
 
@@ -318,16 +374,21 @@
   height: 44px;
   border-radius: 50%;
   background: transparent;
-  color: var(--color-primary);
+  color: var(--color-text-secondary);
   display: grid;
   place-items: center;
   transition: all 0.2s ease;
 }
 
+.floating-bottom-nav button:hover {
+  color: #0F766E;
+  background: #F0FDFA;
+}
+
 .floating-bottom-nav button.active {
-  background: #ffffff;
-  color: var(--color-primary);
-  box-shadow: 0 3px 10px rgba(20, 70, 75, 0.2);
+  background: #0F766E !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 10px rgba(15, 118, 110, 0.3);
 }
 
 /* Mobile Bottom Sheet & Backdrop */
