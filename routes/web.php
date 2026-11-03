@@ -17,8 +17,9 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/quick-login/{role}', [AuthController::class, 'quickLogin'])->name('quick-login');
 
-// Patient / User Dashboard
+// Patient / User Dashboard & Calendar
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/calendar', [HomeController::class, 'calendar'])->name('calendar');
 
 // Admin Routes (Protected by AdminMiddleware)
 Route::middleware(['admin'])->prefix('admin')->name('admin.')->group(function () {

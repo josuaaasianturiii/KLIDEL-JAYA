@@ -26,10 +26,10 @@
                 </button>
 
                 <!-- Jadwal -->
-                <button class="nav flex items-center gap-3 p-2.5 rounded-xl text-[var(--color-text-secondary)] hover:bg-[var(--color-primary-tint)]/60 text-left w-full transition-colors" onclick="window.showToast('Membuka tab Jadwal...')">
+                <a href="{{ route('calendar') }}" class="nav flex items-center gap-3 p-2.5 rounded-xl text-[var(--color-text-secondary)] hover:bg-[var(--color-primary-tint)]/60 text-left w-full transition-colors">
                     <svg class="app-svg-icon"><use href="#icon-cal"/></svg>
                     <span class="hidden xl:inline text-[14px]">Jadwal</span>
-                </button>
+                </a>
 
                 <!-- Dokter -->
                 <button class="nav flex items-center gap-3 p-2.5 rounded-xl text-[var(--color-text-secondary)] hover:bg-[var(--color-primary-tint)]/60 text-left w-full transition-colors" onclick="window.showToast('Membuka direktori Dokter...')">
@@ -513,9 +513,9 @@
 
         <!-- Floating Bottom Navigation -->
         <nav class="floating-bottom-nav" aria-label="Navigasi Bawah">
-            <button aria-label="Jadwal" onclick="window.showToast('Tab Jadwal...')">
+            <a href="{{ route('calendar') }}" aria-label="Jadwal" class="grid place-items-center w-11 h-11 rounded-full text-[var(--color-text-secondary)] hover:text-[#012D68] hover:bg-[#EFF6FF] transition-all">
                 <svg class="app-svg-icon w-5 h-5"><use href="#icon-cal"/></svg>
-            </button>
+            </a>
             <button class="active" aria-label="Beranda">
                 <svg class="app-svg-icon w-5 h-5"><use href="#icon-home"/></svg>
             </button>

@@ -87,4 +87,25 @@ class HomeController extends Controller
             'doctors' => $doctors,
         ]);
     }
+
+    /**
+     * Display the Patient Calendar view.
+     */
+    public function calendar(): View
+    {
+        $authUser = auth()->user();
+        $user = [
+            'name' => $authUser?->name ?? 'Rina Anggraini',
+            'email' => $authUser?->email ?? 'rina@example.com',
+            'role' => $authUser ? ($authUser->isAdmin() ? 'Administrator' : 'Pasien') : 'Pasien',
+            'initials' => $authUser ? strtoupper(substr($authUser->name, 0, 1).substr(trim(strstr($authUser->name, ' ') ?: ''), 0, 1)) : 'RA',
+            'is_logged_in' => auth()->check(),
+            'is_admin' => $authUser?->isAdmin() ?? false,
+        ];
+
+        return view('admin.calendar', [
+            'user' => $user,
+            'role' => 'patient',
+        ]);
+    }
 }
