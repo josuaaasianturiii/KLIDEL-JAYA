@@ -13,21 +13,21 @@
 
 ---
 
-## 👥 Tim Pengembang (Kelompok)
+## 👥 Disusun Oleh (Kelompok)
 
-| NIM | Nama Mahasiswa | Peran & Tanggung Jawab |
-| :--- | :--- | :--- |
-| **12S24035** | **Josua Sianturi** | Fullstack Developer & Database Architect |
-| **12S24014** | **Arion Manurung** | Frontend & UI/UX Specialist |
-| **12S24019** | **Winda N.V. Sitorus** | Backend Developer & Quality Assurance / Testing |
-| **12S24058** | **Airene Situmorang** | System Analyst & Technical Documentation |
+| NIM | Nama Mahasiswa |
+| :--- | :--- |
+| **12S24035** | **Josua Sianturi** |
+| **12S24014** | **Arion Manurung** |
+| **12S24019** | **Winda N.V. Sitorus** |
+| **12S24058** | **Airene Situmorang** |
 
 ---
 
 ## 📌 Daftar Isi
 1. [Tentang Sistem](#-tentang-sistem)
 2. [Latar Belakang & Masalah](#-latar-belakang--masalah)
-3. [Fitur Utama & Peran Aktor (RBAC)](#-fitur-utama--peran-aktor-rbac)
+3. [Deskripsi Aktor & Fitur Sistem (Use Case)](#-deskripsi-aktor--fitur-sistem-use-case)
 4. [Alur Proses Bisnis (BPMN)](#-alur-proses-bisnis-bpmn)
 5. [Arsitektur & Tumpukan Teknologi (Tech Stack)](#-arsitektur--tumpukan-teknologi-tech-stack)
 6. [Perancangan Basis Data (ERD & Spesifikasi Tabel)](#-perancangan-basis-data-erd--spesifikasi-tabel)
@@ -58,9 +58,9 @@ Pada sistem layanan klinik konvensional (*current system*):
 
 ---
 
-## 🎯 Fitur Utama & Peran Aktor (RBAC)
+## 🎯 Deskripsi Aktor & Fitur Sistem (Use Case)
 
-Sistem Informasi Gabe Medika menerapkan *Role-Based Access Control* (RBAC) yang membagi hak akses ke dalam 4 aktor utama:
+Sistem Informasi Gabe Medika membagi interaksi pengguna ke dalam 4 aktor utama sesuai batasan Use Case sistem:
 
 ### 1. Pasien (Patient / User)
 - **Registrasi & Autentikasi Akun:** Pembuatan akun mandiri dengan validasi identitas (NIK dan tanggal lahir).
